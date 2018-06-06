@@ -1,0 +1,25 @@
+{
+  "name": "jdong",
+  "version": "1.0.0",
+  "description": "a jdong project",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/liyue2018/jDong.git"
+  },
+  "keywords": [
+    "phone"
+  ],
+  "author": "liyue2018",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/liyue2018/jDong/issues"
+  },
+  "homepage": "https://github.com/liyue2018/jDong#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1"
+  }
+}
