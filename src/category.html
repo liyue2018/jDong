@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalbale=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>商品分类页面</title>
     <link rel="stylesheet" type="text/css" href="css/base.css">
@@ -11,7 +11,7 @@
 <body>
     <div class="ct_layout">
         <div class="ct_header">
-            <a href="javascript:;" class="ct_back"><i class="iconfont icon-back"></i></a>
+            <a href="index.html" class="ct_back"><i class="iconfont icon-back"></i></a>
             <form class="ct_search">
                 <input type="text" name="" />
             </form>
@@ -52,9 +52,29 @@
                 <div class="ct_banner">
                     <img src="images/jd_productImg03.jpg" alt="" />
                 </div>
+                <h3>热门分类</h3>
                 <div class="ct_hotContent">
-                    <h3>热门分类</h3>
                     <ul class="ct_hotC_list">
+                        <li><a href="javascript:;">
+                            <img src="images/product_item_img.png" alt="">
+                            <p class="ct_hot_text">夏季美鞋</p>
+                        </a></li>
+                        <li><a href="javascript:;">
+                            <img src="images/product_item_img.png" alt="">
+                            <p class="ct_hot_text">夏季美鞋</p>
+                        </a></li>
+                        <li><a href="javascript:;">
+                            <img src="images/product_item_img.png" alt="">
+                            <p class="ct_hot_text">夏季美鞋</p>
+                        </a></li>
+                        <li><a href="javascript:;">
+                            <img src="images/product_item_img.png" alt="">
+                            <p class="ct_hot_text">夏季美鞋</p>
+                        </a></li>
+                        <li><a href="javascript:;">
+                            <img src="images/product_item_img.png" alt="">
+                            <p class="ct_hot_text">夏季美鞋</p>
+                        </a></li>
                         <li><a href="javascript:;">
                             <img src="images/product_item_img.png" alt="">
                             <p class="ct_hot_text">夏季美鞋</p>
@@ -96,7 +116,17 @@
             </div>
         </div>
     </div>
+    <script src="assets/zepto.js"></script>
     <script src="js/common.js"></script>
     <script src="js/category.js"></script>
+    <!-- 引入fastclick -->
+    <script src="assets/fastclick.js"></script>
+    <script src="assets/iscroll.js"></script>
+    <script>
+        var myScroll = new IScroll('.ct_hotContent', {
+           mouseWheel: true,
+           scrollbars: true
+        });
+    </script>
 </body>
 </html>

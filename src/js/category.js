@@ -2,7 +2,7 @@
 * @Author: liyue2018
 * @Date:   2018-06-08 11:17:32
 * @Last Modified by:   liyue2018
-* @Last Modified time: 2018-06-08 16:52:46
+* @Last Modified time: 2018-06-08 17:55:52
 */
 
 window.onload = function () {
@@ -65,16 +65,74 @@ window.onload = function () {
            currentY += distanceY;
         }
     });
+    // 为li元素添加索引
+    for (var i = 0; i < ct_lis.length; i++) {
+        ct_lis[i].index = i;
+    }
     // 移动端的tap事件
-    tools.tap(ct_list, function(e) {
+    // tools.tap(ct_list, function(e) {
+    //     // 修改Li元素样式
+    //     for(var i = 0; i < ct_lis.length; i++) {
+    //         ct_lis[i].classList.remove("active");
+    //     }
+    //     // 当前li元素设置样式
+    //     var li = e.target.parentNode;
+    //     var liHeight = li.offsetHeight;
+    //     li.classList.add("active");
+
+    //     // 获取当前li元素的索引值
+    //     var li_index = li.index;
+    //     // console.log(li_index);
+    //     // 开启过渡
+
+    //     ct_list.style.transition ="top .5s";
+
+    //     // 判断偏移
+    //     if (-li_index * liHeight < minTop) {
+    //         ct_list.style.top = minTop + 'px';
+    //         currentY = minTop;
+    //     } else {
+    //         ct_list.style.top = -li_index * liHeight + 'px';
+    //         currentY = -li_index * liHeight;
+    //     }
+    // });
+
+    // 使用fastclick 
+    if ('addEventListener' in document) {
+       document.addEventListener('DOMContentLoaded', function() {
+           FastClick.attach(document.body);
+       },    false);
+    }
+
+    // fastclick 使用的时候就是绑定添加click事件
+    ct_list.addEventListener('click',function(e) {
         // 修改Li元素样式
         for(var i = 0; i < ct_lis.length; i++) {
             ct_lis[i].classList.remove("active");
         }
         // 当前li元素设置样式
         var li = e.target.parentNode;
+        var liHeight = li.offsetHeight;
         li.classList.add("active");
-    });
+
+        // 获取当前li元素的索引值
+        var li_index = li.index;
+        // console.log(li_index);
+        // 开启过渡
+
+        ct_list.style.transition ="top .5s";
+
+        // 判断偏移
+        if (-li_index * liHeight < minTop) {
+            ct_list.style.top = minTop + 'px';
+            currentY = minTop;
+        } else {
+            ct_list.style.top = -li_index * liHeight + 'px';
+            currentY = -li_index * liHeight;
+        }
+     });   
+
+    
 }
 
 

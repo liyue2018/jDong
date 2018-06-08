@@ -2,9 +2,9 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0,user-scalbale=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>zepto实现效果</title>
+    <title>原生js实现效果</title>
     <link rel="stylesheet" href="css/base.css" />
     <link rel="stylesheet" href="css/index.css" />
 </head>
@@ -12,9 +12,7 @@
     <div class="jd_layout">
         <!-- 搜索快 -->
         <div class="jd_search">
-            <a href="javascript:;" class="jd_logo">
-            </a>
-
+            <a href="javascript:;" class="jd_logo"></a>
             <form action="" method="get" accept-charset="utf-8" class="jd_searchBox">
                 <i class="iconfont icon-search"></i>
                 <input type="text" name="" placeholder="请输入关键字搜索" />
@@ -45,8 +43,8 @@
         <!-- 顶部导航条 -->
         <nav class="jd_topNav">
             <ul>
-                <li class="active"><a href="index.html">zepto实现效果</a></li><!--
-             --><li><a href="javascript.html">原生js实现效果</a></li><!--
+                <!-- <li><a href="index.html">zepto实现效果</a></li> --><!--
+             --><li class="active"><a href="javascript.html">原生js实现效果</a></li><!--
              --><li><a href="category.html">商品分类页面</a></li>
             </ul>
         </nav>
@@ -123,7 +121,7 @@
                         </div>
                     </div>
                     <div class="f_right">
-                        <a href="javascript:;">更多秒杀...</a>
+                        <a href="category.html">更多秒杀...</a>
                     </div>
                 </div>
                 <div class="jd_pContent">
@@ -206,93 +204,6 @@
 
         </div>
     </div>
-    <script src="assets/zepto.min.js"></script>
-    <!-- <script src="assets/selector.js"></script>
-    <script src="assets/fx.js"></script>
-    <script src="assets/touch.js"></script>
- -->    
-
-    <!-- zeopto实现效果 -->
-    <script>
-        // 使用zepto实现轮播图效果
-
-        $(function () {
-            var banner = $('.jd_banner');
-            var bannerWidth = banner.width();
-            // 获取图片盒子
-            var imgBox = banner.find("ul:first-of-type");
-            // 获取圆点标记
-            var indicators = banner.find("ol.jd_bannerDot li");
-            // 获取首尾两张图片
-            var firstImg = imgBox.find("li:first-of-type");
-            var lastImg = imgBox.find("li:last-of-type");
-            // 复制两张图片，分别添加到首尾
-            imgBox.append(firstImg.clone());
-            lastImg.clone().insertBefore(firstImg);
-
-            // 设置图片盒子的样式
-            var lis = imgBox.find('li');
-            var count = lis.length;
-            imgBox.width(count.bannerWidth);
-
-            // 设置li标签的宽度
-
-            lis.each(function (index, value) {
-                $(lis[index]).width(bannerWidth);
-            });
-            // 设置默认偏移
-            imgBox.css('left', -bannerWidth);
-
-
-
-            var index = 1;
-
-            // 轮播动画效果
-            var imgAnimation = function () {
-              imgBox.animate(
-                {"left": -index * bannerWidth}, 200, "ease-in-out", function () {
-                    // 判断当前索引位置是否是最后一张
-                    if (index == count -1) {
-                        index = 1;
-                        // 让他瞬间偏移到索引为1的位置 -- 非过渡
-                        imgBox.css("left", -index * bannerWidth);
-                    }
-                    else if (index == 0) {
-                        index = count - 2;
-                        imgBox.css("left", -index * bannerWidth);
-                    }
-                    // 设置圆点标记
-                    indicators.removeClass('active').eq(index - 1).addClass('active');
-
-                });
-            }
-
-            // 开启定时器
-            var timerId = setInterval(function() {
-                index ++;
-                // 设置过渡
-                // 设置定位
-                imgAnimation();
-
-
-            }, 2000);
-
-            // touch 事件
-            // 在谷歌浏览器中无法正确触发swipe相关事件，但是可以触发tap事件
-            // 向左滑动
-            imgBox.on('swipeLeft', function () {
-                clearInterval(timerId);
-                index ++;
-                imgAnimation();
-            });
-            // 向右滑动
-            imgBox.on('swipeRight', function () {
-                clearInterval(timerId);
-                index --;
-                imgAnimation();
-            });
-
-        })
-    </script>
+    <script src="js/index_js.js"></script>
 </body>
 </html>

@@ -2,7 +2,7 @@
 * @Author: liyue2018
 * @Date:   2018-06-08 01:24:04
 * @Last Modified by:   liyue2018
-* @Last Modified time: 2018-06-08 16:26:20
+* @Last Modified time: 2018-06-08 19:55:22
 */
 // 全屏页面的实现
 
@@ -29,6 +29,9 @@ html, body {
             left: 0;
             top: 0;
             text-align: center;
+            i.icon-back {
+                font-size: 30px;
+            }
         }
         .ct_menu {
             display: block;
@@ -38,6 +41,9 @@ html, body {
             right: 0;
             top: 0;
             text-align: center;
+            i.icon-navlist {
+                font-size: 24px;
+            }
         }
         .ct_search {
             width: 100%;
@@ -110,19 +116,24 @@ html, body {
                     display: block;
                 }
             }
+            h3 {
+                line-height: 22px;
+                border-bottom: 1px solid #ccc;
+                padding-left: 10px;
+                padding-bottom: 3px;
+                font-size: 13px;
+                background: #fff;
+                padding-top: 10px;
+            }
             .ct_hotContent {
                 background: #fff;
                 overflow: hidden;
+                position: relative;
                 // overflow元素有具体的宽高值
                 flex: 1;
-                h3 {
-                    line-height: 22px;
-                    border-bottom: 1px solid #ccc;
-                    padding-left: 10px;
-                    padding-bottom: 3px;
-                    font-size: 13px;
-                }
                 .ct_hotC_list {
+                    overflow: hidden;
+                    // position: relative;
                      li {
                         width: 33.33%;
                         text-align: center;
