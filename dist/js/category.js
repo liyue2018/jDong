@@ -2,7 +2,7 @@
 * @Author: liyue2018
 * @Date:   2018-06-08 11:17:32
 * @Last Modified by:   liyue2018
-* @Last Modified time: 2018-06-08 15:40:14
+* @Last Modified time: 2018-06-08 16:52:46
 */
 
 window.onload = function () {
@@ -11,6 +11,7 @@ window.onload = function () {
     // 获取左侧栏的高度
     var leftHeight = ct_cLeft.offsetHeight;
     var ct_list = ct_cLeft.querySelector('ul:first-of-type');
+    var ct_lis = ct_list.querySelectorAll('li');
     var ct_listHeight = ct_list.offsetHeight;
 
     // 设置静止状态下的最大值top
@@ -54,7 +55,7 @@ window.onload = function () {
             currentY = minTop;
             ct_list.style.transition = 'top 0.5s';
             ct_list.style.top = minTop + 'px';
-        } else if (currentY + distanceY > minTop) {
+        } else if (currentY + distanceY > maxTop) {
             currentY = maxTop;
             ct_list.style.transition = 'top 0.5s';
             ct_list.style.top = maxTop + 'px';
@@ -63,7 +64,17 @@ window.onload = function () {
            // 记录当前滑动的距离
            currentY += distanceY;
         }
-    })
+    });
+    // 移动端的tap事件
+    tools.tap(ct_list, function(e) {
+        // 修改Li元素样式
+        for(var i = 0; i < ct_lis.length; i++) {
+            ct_lis[i].classList.remove("active");
+        }
+        // 当前li元素设置样式
+        var li = e.target.parentNode;
+        li.classList.add("active");
+    });
 }
 
 

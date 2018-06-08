@@ -2,7 +2,7 @@
 * @Author: liyue2018
 * @Date:   2018-06-08 15:40:09
 * @Last Modified by:   liyue2018
-* @Last Modified time: 2018-06-08 15:56:34
+* @Last Modified time: 2018-06-08 16:46:53
 */
 
 // 移动端的tap 事件
@@ -11,16 +11,16 @@
 // 判断是否是长按
 //  判断是否有抖动
 
-var Tools = {
+var tools = {
     tap: function (element, callback) {
         // 判断是否传入对象，同时对象是一个dom元素
-        if (element || typeof element != "object") {
+        if (!element || typeof element != "object") {
             return;
         }
 
         var startTime, startX,startY;
 
-        element.addEventListener('touchatart', function (e) {
+        element.addEventListener('touchstart', function (e) {
             // 判断是否只有一个手指进行操作
             if (e.targetTouches.length > 1) {
                 return;
@@ -39,7 +39,7 @@ var Tools = {
             }
             // 判断事件差异 150
 
-            if (date.now() - startTime > 150) {
+            if (Date.now() - startTime > 150) {
                 // 长按操作
                 return;
             }
@@ -54,10 +54,10 @@ var Tools = {
                 // 执行tap事件响应后的处理
 
                 // 判断是否传入回调函数
-                callback && callback();
+                callback && callback(e);
             }
 
         })
 
     }
-}
+};
