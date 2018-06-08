@@ -2,7 +2,7 @@
 * @Author: liyue2018
 * @Date:   2018-06-06 10:45:16
 * @Last Modified by:   liyue2018
-* @Last Modified time: 2018-06-06 21:30:42
+* @Last Modified time: 2018-06-08 00:10:10
 */
 .jd_layout {
     width: 100%;
@@ -80,11 +80,20 @@
     overflow: hidden;
     position: relative;
     .jd_bannerImg {
-        width: 500%;
+        width: 700%;
+        // width: 500%;
         height: 100%;
-        // position: relative;
+        // position: absolute; 如果使用absolute 会造成父容器无法获取子元素撑开的高度
+        // 添加默认偏移 第一种方法
+        // transform: translate(-14.28%);
+        // 第二种方法
+        position: relative;
+        // 定位，使用百分比时是参照父容器的宽度
+        // left: -100%; 
+        // 第三种方式 使用js添加首尾图片
         li {
-            width: 20%;
+            width: 14.28%;
+            // width: 10%;
             float: left;
             height: 100%;
             // position: absolute;
@@ -123,6 +132,27 @@
             background: #ff0;
         }
 
+    }
+}
+
+// 导航条
+.jd_topNav {
+    width: 100%;
+    background: #fff;
+    overflow: hidden;
+    margin: 10px 0;
+    height: 40px;
+    ul {
+        li {
+            width: 25%;
+            float: left;
+            padding: 10px 0;
+            border-right: 4px solid #f1f1f1;
+            text-align: center;
+        }
+        li.active {
+            border-bottom: 3px solid #f00;
+        }
     }
 }
 
@@ -178,7 +208,7 @@
         }
         .jd_pContent {
             width: 100%;
-            height: 320px;
+            height: 240px;
             border-top: 1px solid #f1f1f1;
             padding: 15px 0;
             a {
@@ -205,6 +235,10 @@
     .jd_pTips {
         height: 40px;
         line-height: 40px;
+        padding-right: 10px;
+        .jd_sk_icon {
+            padding-left: 6px;
+        }
         .jd_sk_text {
             color: #f00;
             padding: 0 6px;
@@ -223,7 +257,7 @@
         }
     }
     .jd_pContent {
-        height: 260px !important;
+        height: 200px !important;
         .jd_pList {
             width: 100%;
             margin-top: 10px;
@@ -234,13 +268,16 @@
                 border-right: 2px solid #f1f1f1;
                 text-align: center;
                 float: left;
+                &:last-child {
+                    border-right: none;
+                }
                 a {
                     width: 100%;
                     height: 100%;
                 }
                 img {
                     width: 100%;
-                    height: 150px;
+                    height: 100px;
                 }
                 .jd_pItem_name {
                     height: 22px;
